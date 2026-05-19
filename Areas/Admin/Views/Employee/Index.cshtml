@@ -1,0 +1,66 @@
+﻿@using Bilet_1.Models
+@model List<Employee>
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between mb-3">
+
+        <h2>Employee Table</h2>
+
+        <a class="btn btn-success"
+               href="/Admin/Employee/Create">
+            Add Employee
+        </a>
+
+    </div>
+
+    <table class="table table-bordered">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Id</td>
+
+                    <td>
+                        <img src="@item.ImageUrl"
+                             width="70" />
+                    </td>
+
+                    <td>@item.Name</td>
+
+                    <td>
+
+                        <a class="btn btn-warning btn-sm"
+                               href="/Admin/Employee/Update/@item.Id">
+                            Update
+                        </a>
+
+                        <a class="btn btn-danger btn-sm"
+                               href="/Admin/Employee/Delete/@item.Id">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

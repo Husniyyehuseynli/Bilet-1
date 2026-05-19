@@ -1,0 +1,36 @@
+﻿@using Bilet_1.Models
+@model Employee
+
+<div class="container mt-4">
+
+    <h2>Update Employee</h2>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+
+            <label>Name</label>
+
+            <input asp-for="Name"
+                   class="form-control" />
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>ImageUrl</label>
+
+            <input asp-for="ImageUrl"
+                   class="form-control" />
+
+        </div>
+
+        <button class="btn btn-warning">
+            Update
+        </button>
+
+    </form>
+
+</div>
