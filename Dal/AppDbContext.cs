@@ -1,9 +1,11 @@
 ﻿using Bilet_1.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bilet_1.Dal
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext :IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -16,6 +18,7 @@ namespace Bilet_1.Dal
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Employee>()
                 .Property(x => x.Name)
                 .HasMaxLength(100)
